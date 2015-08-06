@@ -1,0 +1,8 @@
+{
+	"files": [
+		{ "read": "read.json" },
+		{ "watch": "watch.json" },
+		{ "books": "books.json" }
+	],
+	"browser": "chromium-browser"
+}
