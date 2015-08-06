@@ -1,44 +1,42 @@
-{
-	"articles": [
-		{
-			"title": "Vim After 11 Years",
-			"link": "https://statico.github.io/vim.html"
-		},
-		{
-			"title": "The Kernel Boot Process",
-			"link": "http://duartes.org/gustavo/blog/post/kernel-boot-process/"
-		},
-		{
-			"title": "How Computers Boot Up",
-			"link": "http://duartes.org/gustavo/blog/post/how-computers-boot-up/"
-		},
-		{
-			"title": "System Calls Make the World Go Round",
-			"link": "http://duartes.org/gustavo/blog/post/system-calls/"
-		},
-		{
-			"title": "When Does Your OS Run?",
-			"link": "http://duartes.org/gustavo/blog/post/when-does-your-os-run/"
-		},
-		{
-			"title": "Golden Grid System",
-			"link": "http://goldengridsystem.com/"
-		},
-		{
-			"title": "Responsive Webdesign - die Basics",
-			"link": "http://liechtenecker.at/responsive-webdesign-die-basics/"
-		},
-		{
-			"title": "Fluid Grids",
-			"link": "http://alistapart.com/article/fluidgrids"
-		},
-		{
-			"title": "Code Injection Attacks on HTML5-based Mobile Apps",
-			"link": "http://arxiv.org/ftp/arxiv/papers/1410/1410.7756.pdf"
-		},
-		{
-			"title": "Cache is the new RAM - MemSQL",
-			"link": "http://blog.memsql.com/cache-is-the-new-ram/"
-		}
-	]
-}
+[
+	{
+		"title": "Vim After 11 Years",
+		"link": "https://statico.github.io/vim.html"
+	},
+	{
+		"title": "The Kernel Boot Process",
+		"link": "http://duartes.org/gustavo/blog/post/kernel-boot-process/"
+	},
+	{
+		"title": "How Computers Boot Up",
+		"link": "http://duartes.org/gustavo/blog/post/how-computers-boot-up/"
+	},
+	{
+		"title": "System Calls Make the World Go Round",
+		"link": "http://duartes.org/gustavo/blog/post/system-calls/"
+	},
+	{
+		"title": "When Does Your OS Run?",
+		"link": "http://duartes.org/gustavo/blog/post/when-does-your-os-run/"
+	},
+	{
+		"title": "Golden Grid System",
+		"link": "http://goldengridsystem.com/"
+	},
+	{
+		"title": "Responsive Webdesign - die Basics",
+		"link": "http://liechtenecker.at/responsive-webdesign-die-basics/"
+	},
+	{
+		"title": "Fluid Grids",
+		"link": "http://alistapart.com/article/fluidgrids"
+	},
+	{
+		"title": "Code Injection Attacks on HTML5-based Mobile Apps",
+		"link": "http://arxiv.org/ftp/arxiv/papers/1410/1410.7756.pdf"
+	},
+	{
+		"title": "Cache is the new RAM - MemSQL",
+		"link": "http://blog.memsql.com/cache-is-the-new-ram/"
+	}
+]
