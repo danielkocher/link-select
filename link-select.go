@@ -28,13 +28,13 @@ func init() {
 func processArgs(arg *flag.Flag) {
 	switch arg.Name {
 	case "add-link":
-		add.AddLink()
+		add.AddLink(arg)
 	case "a":
-		add.AddLink()
+		add.AddLink(arg)
 	case "sel-link":
-		sel.SelectLink()
+		sel.SelectLink(arg)
 	case "s":
-		sel.SelectLink()
+		sel.SelectLink(arg)
 	default:
 
 	}
