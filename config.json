@@ -4,5 +4,7 @@
 		{ "watch": "watch.json" },
 		{ "books": "books.json" }
 	],
-	"browser": "chromium-browser"
+	"system": [
+		{ "browser": "chromium-browser" }
+	]
 }
