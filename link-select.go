@@ -35,7 +35,8 @@ func init() {
 func loadConfig() {
 	configFile, err := os.Open("config.json")
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error while opening config file\n")
+		fmt.Fprintf(os.Stderr, "Error while opening config JSON file\n")
+		log.Fatal(err)
 		os.Exit(-1)
 	}
 
@@ -45,7 +46,9 @@ func loadConfig() {
 		if err := dec.Decode(&c); err == io.EOF {
 			break
 		} else if err != nil {
+			fmt.Fprintf(os.Stderr, "Error while parsing config JSON file\n")
 			log.Fatal(err)
+			os.Exit(-1)
 		}
 
 		system = c["system"]
@@ -87,7 +90,7 @@ func main() {
 		loadConfig()
     	flag.Visit(processArgs)
 	} else {
-		fmt.Fprintf(os.Stderr, "Error while parsing command-line arguments")
+		fmt.Fprintf(os.Stderr, "Error while parsing command-line arguments\n")
 		os.Exit(-1)
 	}
 }
