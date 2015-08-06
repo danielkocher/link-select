@@ -4,9 +4,16 @@ import (
 	"os"
 	"fmt"
 	"flag"
+	"io"
+	"log"
+	"encoding/json"
 	"link-select/add"
 	"link-select/sel"
+	"link-select/types"
 )
+
+var system []map[string]string
+var files []map[string]string
 
 var addLink string
 var selectLink string
@@ -23,6 +30,33 @@ func init() {
 	flag.StringVar(&addLink, "a", defaultAdd, usageAdd + " (shorthand)")
 	flag.StringVar(&selectLink, "sel-link", defaultSelect, usageSelect)
 	flag.StringVar(&selectLink, "s", defaultSelect, usageSelect + " (shorthand)")
+}
+
+func loadConfig() {
+	configFile, err := os.Open("config.json")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error while opening config file\n")
+		os.Exit(-1)
+	}
+
+	dec := json.NewDecoder(configFile)
+	for {
+		var c types.Config
+		if err := dec.Decode(&c); err == io.EOF {
+			break
+		} else if err != nil {
+			log.Fatal(err)
+		}
+
+		system = c["system"]
+		files = c["files"]
+	}
+
+	/*
+	// debug
+	fmt.Println(system)
+	fmt.Println(files)
+	*/
 }
 
 func processArgs(arg *flag.Flag) {
@@ -50,6 +84,7 @@ func main() {
 
 	flag.Parse()
 	if flag.Parsed() {
+		loadConfig()
     	flag.Visit(processArgs)
 	} else {
 		fmt.Fprintf(os.Stderr, "Error while parsing command-line arguments")
