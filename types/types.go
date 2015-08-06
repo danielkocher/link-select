@@ -1,5 +1,7 @@
 package types
 
+type Config map[string][]map[string]string
+
 type Article struct {
 	Title string
 	Link string
