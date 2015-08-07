@@ -12,8 +12,8 @@ import (
 	"link-select/types"
 )
 
-var system []types.ConfigRecord
-var files []types.ConfigRecord
+var system types.ConfigRecord
+var files types.ConfigRecord
 
 var addLink string
 var selectLink string
@@ -63,15 +63,17 @@ func loadConfig() {
 }
 
 func processArgs(arg *flag.Flag) {
+	fmt.Println(selectLink)
+
 	switch arg.Name {
 	case "add-link":
 		add.AddLink(arg)
 	case "a":
 		add.AddLink(arg)
 	case "sel-link":
-		sel.SelectLink(arg)
+		sel.SelectLink(arg, files[selectLink], system["browser"])
 	case "s":
-		sel.SelectLink(arg)
+		sel.SelectLink(arg, files[selectLink], system["browser"])
 	default:
 
 	}
