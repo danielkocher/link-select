@@ -6,3 +6,9 @@ Small command-line tool to select links by some criterion, e.g. randomly, and st
 Links are stored in JSON files.  
 
 A more detailed description will follow.
+
+# Some useful references
+* http://golang.org/doc/code.html
+* https://golang.org/doc/effective_go.html
+* https://golang.org/pkg/encoding/json
+* http://spf13.com/post/is-go-object-oriented/
