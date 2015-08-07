@@ -12,8 +12,8 @@ import (
 	"link-select/types"
 )
 
-var system []map[string]string
-var files []map[string]string
+var system []types.ConfigRecord
+var files []types.ConfigRecord
 
 var addLink string
 var selectLink string
@@ -57,8 +57,8 @@ func loadConfig() {
 
 	/*
 	// debug
-	fmt.Println(system)
-	fmt.Println(files)
+	fmt.Println("system:", system)
+	fmt.Println("files:", files)
 	*/
 }
 
