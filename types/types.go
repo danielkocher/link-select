@@ -4,17 +4,9 @@ package types
 type ConfigRecord map[string]string
 type Config map[string]ConfigRecord
 
-type ReadRecord struct {
+type BaseRecord struct {
 	Title string
-	Link string
+	Link string	
 }
 
-type ReadList []ReadRecord
-
-type WatchRecord struct {
-	Title string
-	Length int
-	Link string
-}
-
-type WatchList []WatchRecord
+type RecordList []BaseRecord
