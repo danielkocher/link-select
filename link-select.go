@@ -83,7 +83,7 @@ func main() {
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "USAGE: link-select " +
 			"[--add-link=<link-to-add> |" +
-			" --sel-link=<type-of-link>])\n")
+			" --sel-link=[read|watch|book]])\n")
 		os.Exit(-1)
 	}
 
