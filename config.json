@@ -1,10 +1,10 @@
 {
-	"files": [
-		{ "read": "read.json" },
-		{ "watch": "watch.json" },
-		{ "books": "books.json" }
-	],
-	"system": [
-		{ "browser": "chromium-browser" }
-	]
+	"files": {
+		"read": "files/read.json",
+		"watch": "files/watch.json",
+		"books": "books.json"
+	},
+	"system": {
+		"browser": "chromium-browser"
+	}
 }
