@@ -20,9 +20,9 @@ var selectLink string
 
 func init() {
 	const (
-		defaultAdd = "article"
+		defaultAdd = "read"
 		usageAdd = "add a link (to json file)"
-		defaultSelect = "article"
+		defaultSelect = "read"
 		usageSelect = "select a link (from json file)"
 	)
 
