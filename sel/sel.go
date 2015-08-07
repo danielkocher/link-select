@@ -22,10 +22,10 @@ func SelectLink(arg *flag.Flag, file string, browser string) {
 		os.Exit(-1)
 	}
 
-	// decode JSON file into custom type ReadList
-	var readList types.ReadList
+	// decode JSON file into custom type
+	var list types.RecordList
 	jsonParser := json.NewDecoder(readFile)
-	if err = jsonParser.Decode(&readList); err != nil {
+	if err = jsonParser.Decode(&list); err != nil {
 		fmt.Fprintf(os.Stderr, "Error while parsing %s\n", file)
 		log.Fatal(err)
 		readFile.Close()
@@ -37,28 +37,28 @@ func SelectLink(arg *flag.Flag, file string, browser string) {
 	r := rand.New(randSrc)
 
 	// select random article
-	rndArticle := r.Intn(len(readList))
-	fmt.Fprintf(os.Stdout, "Selected \"%s\"\n", readList[rndArticle].Title)
+	rndArticle := r.Intn(len(list))
+	fmt.Fprintf(os.Stdout, "Selected \"%s\"\n", list[rndArticle].Title)
 	
 	// open link in browser
-	cmd := exec.Command(browser, readList[rndArticle].Link)
+	cmd := exec.Command(browser, list[rndArticle].Link)
 	err = cmd.Run()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error while opening %s in %s\n",
-			readList[rndArticle], browser)
+			list[rndArticle], browser)
 		log.Fatal(err)
 		readFile.Close()
 		os.Exit(-1)
 	}
 
 	// remove selected article from list
-	readList = append(readList[:rndArticle], readList[rndArticle + 1:]...)
+	list = append(list[:rndArticle], list[rndArticle + 1:]...)
 
 	// write back JSON file without selected article
 	readFile.Close()
 	readFile, err = os.Create(file)
 	jsonWriter := json.NewEncoder(readFile)
-	if err = jsonWriter.Encode(&readList); err != nil {
+	if err = jsonWriter.Encode(&list); err != nil {
 		fmt.Fprintf(os.Stderr, "Error while writing back %s\n", file)
 		log.Fatal(err)
 		readFile.Close()
