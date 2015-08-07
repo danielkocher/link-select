@@ -2,17 +2,17 @@ package types
 
 type Config map[string][]map[string]string
 
-type ReadTuple struct {
+type ReadRecord struct {
 	Title string
 	Link string
 }
 
-type ReadList []ReadTuple
+type ReadList []ReadRecord
 
-type WatchTriple struct {
+type WatchRecord struct {
 	Title string
 	Length int
 	Link string
 }
 
-type WatchList []WatchTriple
+type WatchList []WatchRecord
