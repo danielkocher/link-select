@@ -1,29 +1,22 @@
-{
-	"videos": [
-		{
-			"title": "How To Manage",
-			"length": 50,
-			"link": "http://startupclass.samaltman.com/courses/lec15/"
-		},
-		{
-			"title": "A Programming Language for Games",
-			"length": 127,
-			"link": "https://www.youtube.com/watch?v=UTqZNujQOlA"
-		},
-		{
-			"title": "Donald Knuth's 20th Annual Christmas Tree Lecture: (3/2)-ary Trees",
-			"length": 76,
-			"link": "https://www.youtube.com/watch?v=P4AaGQIo0HY"
-		},
-		{
-			"title": "Is it really Complex? Or did we just make it Complicated?",
-			"length": 103,
-			"link": "https://www.youtube.com/watch?v=ubaX1Smg6pY&="
-		},
-		{
-			"title": "The F# Path to Relaxation",
-			"length": 48,
-			"link": "https://www.youtube.com/watch?v=W-D6W7EA8gw"
-		}
-	]
-}
+[
+	{
+		"title": "How To Manage",
+		"link": "http://startupclass.samaltman.com/courses/lec15/"
+	},
+	{
+		"title": "A Programming Language for Games",
+		"link": "https://www.youtube.com/watch?v=UTqZNujQOlA"
+	},
+	{
+		"title": "Donald Knuth's 20th Annual Christmas Tree Lecture: (3/2)-ary Trees",
+		"link": "https://www.youtube.com/watch?v=P4AaGQIo0HY"
+	},
+	{
+		"title": "Is it really Complex? Or did we just make it Complicated?",
+		"link": "https://www.youtube.com/watch?v=ubaX1Smg6pY&="
+	},
+	{
+		"title": "The F# Path to Relaxation",
+		"link": "https://www.youtube.com/watch?v=W-D6W7EA8gw"
+	}
+]
