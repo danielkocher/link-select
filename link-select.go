@@ -61,8 +61,6 @@ func loadConfig() {
 // processArgs processes the command-line arguments (in essence, calls the 
 // functions dependent on the provided flags).
 func processArgs(arg *flag.Flag) {
-	fmt.Println(selectLink)
-
 	var err error
 	switch arg.Name {
 	case "add-link":
