@@ -5,7 +5,48 @@ Small application to get used to Go (http://golang.org/) - so don't blame me for
 Small command-line tool to select links randomly and store them.  
 Links are stored in JSON files.  
 
-A more detailed description will follow.
+## Link storage format
+Link storage is kept simple: just an array of (title, link) pairs in which the title may be omitted (the link may be omitted as well but this makes no sense at all and thus is not checked by now).  
+
+Example JSON files:  
+*read.json*
+```
+[
+	{
+		"title": "Vim After 11 Years",
+		"link": "https://statico.github.io/vim.html"
+	},
+	{
+		"title": "The Kernel Boot Process",
+		"link": "http://duartes.org/gustavo/blog/post/kernel-boot-process/"
+	},
+		{
+		"title": "Code Injection Attacks on HTML5-based Mobile Apps",
+		"link": "http://arxiv.org/ftp/arxiv/papers/1410/1410.7756.pdf"
+	},
+	{
+		"title": "Cache is the new RAM - MemSQL",
+		"link": "http://blog.memsql.com/cache-is-the-new-ram/"
+	}
+]
+```
+*watch.json*
+```
+[
+ {
+		"title": "Donald Knuth's 20th Annual Christmas Tree Lecture: (3/2)-ary Trees",
+		"link": "https://www.youtube.com/watch?v=P4AaGQIo0HY"
+	},
+	{
+		"title": "Is it really Complex? Or did we just make it Complicated?",
+		"link": "https://www.youtube.com/watch?v=ubaX1Smg6pY&="
+	},
+	{
+		"title": "The F# Path to Relaxation",
+		"link": "https://www.youtube.com/watch?v=W-D6W7EA8gw"
+	}
+]
+```
 
 # Usage
 Assuming a Go environment set up as described on golang.org.  
