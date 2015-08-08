@@ -2,7 +2,7 @@
 	"files": {
 		"read": "files/read.json",
 		"watch": "files/watch.json",
-		"books": "files/books.json"
+		"book": "files/book.json"
 	},
 	"system": {
 		"browser": "chromium-browser"
