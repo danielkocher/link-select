@@ -82,8 +82,8 @@ func processArgs(arg *flag.Flag) {
 func main() {
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "USAGE: link-select " +
-			"[--add-link=<link-to-add> |" +
-			" --sel-link=[read|watch|book]])\n")
+			"[--add-link=read|watch|book |" +
+			" --sel-link=read|watch|book])\n")
 		os.Exit(-1)
 	}
 
