@@ -1,35 +1,25 @@
+// Package sel provides primitives for selecting entries from a JSON file.
 package sel
 
 import (
 	"os"
 	"os/exec"
-	"flag"
 	"fmt"
-	"log"
 	"time"
 	"math/rand"
-	"encoding/json"
 	"link-select/types"
 )
 
-func SelectLink(arg *flag.Flag, file string, browser string) {
+// SelectLink selects a link from file and opens it in a bg process in browser.
+// file is supposed to be a JSON file in the read, watch or book format (see
+// link-select/types for further details).
+// It returns nil on success and the error on failure (propagates the error).
+func SelectLink(file string, browser string) error {
 	fmt.Fprintf(os.Stdout, "Selecting from %s\n", file)
 
-	// open JSON file
-	readFile, err := os.Open(file)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error while opening %s\n", file)
-		os.Exit(-1)
-	}
-
-	// decode JSON file into custom type
 	var list types.RecordList
-	jsonParser := json.NewDecoder(readFile)
-	if err = jsonParser.Decode(&list); err != nil {
-		fmt.Fprintf(os.Stderr, "Error while parsing %s\n", file)
-		log.Fatal(err)
-		readFile.Close()
-		os.Exit(-1)
+	if err := list.Read(file); err != nil {
+		return err
 	}
 
 	// set new seed to get non-deterministic random number generation
@@ -42,28 +32,19 @@ func SelectLink(arg *flag.Flag, file string, browser string) {
 	
 	// open link in browser
 	cmd := exec.Command(browser, list[rndArticle].Link)
-	err = cmd.Run()
-	if err != nil {
+	if err := cmd.Start(); err != nil {
 		fmt.Fprintf(os.Stderr, "Error while opening %s in %s\n",
 			list[rndArticle], browser)
-		log.Fatal(err)
-		readFile.Close()
-		os.Exit(-1)
+		return err
 	}
 
 	// remove selected article from list
 	list = append(list[:rndArticle], list[rndArticle + 1:]...)
 
-	// write back JSON file without selected article
-	readFile.Close()
-	readFile, err = os.Create(file)
-	jsonWriter := json.NewEncoder(readFile)
-	if err = jsonWriter.Encode(&list); err != nil {
-		fmt.Fprintf(os.Stderr, "Error while writing back %s\n", file)
-		log.Fatal(err)
-		readFile.Close()
-		os.Exit(-1)
+	// write back to JSON file
+	if err := list.Write(file); err != nil {
+		return err
 	}
 
-	readFile.Close()
+	return nil
 }
