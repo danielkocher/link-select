@@ -64,6 +64,9 @@ Example JSON files (see also the *files* folder of this repository):
 # Usage
 Assuming a Go environment set up as described on golang.org.  
 ```
+go install link-select
+```
+```
 link-select OPTION
 
 At least one mandatory argument.
