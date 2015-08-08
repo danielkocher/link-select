@@ -32,6 +32,8 @@ func init() {
 	flag.StringVar(&selectLink, "s", defaultSelect, usageSelect + " (shorthand)")
 }
 
+// loadConfig loads the JSON configuration file (see link-select/types for
+// further details).
 func loadConfig() {
 	configFile, err := os.Open("config.json")
 	if err != nil {
@@ -54,28 +56,33 @@ func loadConfig() {
 		system = c["system"]
 		files = c["files"]
 	}
-
-	/*
-	// debug
-	fmt.Println("system:", system)
-	fmt.Println("files:", files)
-	*/
 }
 
+// processArgs processes the command-line arguments (in essence, calls the 
+// functions dependent on the provided flags).
 func processArgs(arg *flag.Flag) {
 	fmt.Println(selectLink)
 
+	var err error
 	switch arg.Name {
 	case "add-link":
-		add.AddLink(arg)
+		err = add.AddLink(files[addLink])
 	case "a":
-		add.AddLink(arg)
+		err = add.AddLink(files[addLink])
 	case "sel-link":
-		sel.SelectLink(arg, files[selectLink], system["browser"])
+		err = sel.SelectLink(files[selectLink], system["browser"])
 	case "s":
-		sel.SelectLink(arg, files[selectLink], system["browser"])
+		err = sel.SelectLink(files[selectLink], system["browser"])
 	default:
+		fmt.Fprintf(os.Stderr, "USAGE: link-select " +
+			"[--add-link=<link-to-add> |" +
+			" --sel-link=[read|watch|book]])\n")
+		os.Exit(-1)
+	}
 
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(-1)
 	}
 }
 
