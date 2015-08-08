@@ -8,7 +8,7 @@ Links are stored in JSON files.
 ## Link storage format
 Link storage is kept simple: just an array of (title, link) pairs in which the title may be omitted (the link may be omitted as well but this makes no sense at all and thus is not checked by now).  
 
-Example JSON files:  
+Example JSON files (see also the *files* folder of this repository):  
 *read.json*
 ```
 [
@@ -33,7 +33,7 @@ Example JSON files:
 *watch.json*
 ```
 [
- {
+ 	{
 		"title": "Donald Knuth's 20th Annual Christmas Tree Lecture: (3/2)-ary Trees",
 		"link": "https://www.youtube.com/watch?v=P4AaGQIo0HY"
 	},
@@ -44,6 +44,19 @@ Example JSON files:
 	{
 		"title": "The F# Path to Relaxation",
 		"link": "https://www.youtube.com/watch?v=W-D6W7EA8gw"
+	}
+]
+```
+*book.json*
+```
+[
+	{
+		"title": "How to Design Programs, Second Edition",
+		"link": "http://www.ccs.neu.edu/home/matthias/HtDP2e/"
+	},
+	{
+		"title": "The Rust Programming Language",
+		"link": "https://doc.rust-lang.org/book/"
 	}
 ]
 ```
