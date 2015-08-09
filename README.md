@@ -84,7 +84,7 @@ Sample configuration JSON file:
 ```
 
 # Usage
-Assuming a Go environment set up as described on golang.org (also the `bin` folder added to PATH).  
+Assuming a Go environment set up as described on golang.org (also the `bin` folder added to `PATH`).  
 ```
 go install link-select
 ```
