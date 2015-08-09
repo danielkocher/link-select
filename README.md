@@ -68,7 +68,7 @@ The `config.json` file has two main purposes by now:
 
 This configuration file has to be present in the folder from which `link-select` is called. The file paths have to be absolute or relative from the configuration file.
 
-Sample configuration JSON file:
+Sample configuration JSON file:  
 *config.json*
 ```
 {
