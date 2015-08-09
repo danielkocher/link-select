@@ -6,6 +6,7 @@ import (
 	"os/exec"
 	"fmt"
 	"time"
+	"errors"
 	"math/rand"
 	"link-select/types"
 )
@@ -20,6 +21,10 @@ func SelectLink(file string, browser string) error {
 	var list types.RecordList
 	if err := list.Read(file); err != nil {
 		return err
+	}
+
+	if len(list) <= 0 {
+		return errors.New("List contains no links")
 	}
 
 	// set new seed to get non-deterministic random number generation
