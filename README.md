@@ -8,7 +8,7 @@ Links are stored in JSON files.
 ## Link storage format
 Link storage is kept simple: just an array of (title, link) pairs in which the title may be omitted (the link may be omitted as well but this makes no sense at all and thus is not checked by now).  
 
-Example JSON files (see also the *files* folder of this repository):  
+Sample JSON files (see also the *files* folder of this repository):  
 *read.json*
 ```
 [
@@ -65,6 +65,23 @@ Example JSON files (see also the *files* folder of this repository):
 The `config.json` file has two main purposes by now:  
 1. Configure the paths to the files to select from.  
 2. Configure the command to be used to open the link (most likely a browser, e.g. chromium-browser).  
+
+This configuration file has to be present in the folder from which `link-select` is called. The file paths have to be absolute or relative from the configuration file.
+
+Sample configuration JSON file:
+*config.json*
+```
+{
+	"files": {
+		"read": "files/read.json",
+		"watch": "files/watch.json",
+		"book": "files/book.json"
+	},
+	"system": {
+		"browser": "chromium-browser"
+	}
+}
+```
 
 # Usage
 Assuming a Go environment set up as described on golang.org.  
