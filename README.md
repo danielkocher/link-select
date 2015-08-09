@@ -61,6 +61,11 @@ Example JSON files (see also the *files* folder of this repository):
 ]
 ```
 
+## Configuration
+The `config.json` file has two main purposes by now:  
+1. Configure the paths to the files to select from.  
+2. Configure the command to be used to open the link (most likely a browser, e.g. chromium-browser).  
+
 # Usage
 Assuming a Go environment set up as described on golang.org.  
 ```
